@@ -1,8 +1,3 @@
 {
-  "image": "ghcr.io/Lecreator-KH/devcontainer-postgres-base:latest",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {
-      "moby": false
-    } 
-  }
+    "image": "ghcr.io/npict-dott/devcontainer-postgres-base:latest"
 }
