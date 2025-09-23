@@ -1,4 +1,5 @@
-const API_BASE = 'https://psychic-space-fortnight-g7xqgv9rqp6c9ggw-3000.app.github.dev'; // change if different
+// Load API_BASE from config.js instead.
+
 let table;
 
 function actionButtons(id) {

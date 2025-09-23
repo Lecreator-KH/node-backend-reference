@@ -5,13 +5,25 @@ const app = express();
 const port = 3000;
 
 // Configure the database connection pool
-const pool = new Pool({
-    user: 'postgres', // Your PostgreSQL username
-    host: process.env.PG_HOST || '127.0.0.1',
-    database: 'postgres', // The database you created
-    password: 'postgres', // Your PostgreSQL password
-    port: 5432,
-});
+let pool
+if (!process.env.DATABASE_URL) {
+    pool = new Pool({
+        user: process.env.PG_USER || 'postgres',
+        host: process.env.PG_HOST || '127.0.0.1', 
+        database: process.env.PG_DATABASE || 'postgres',
+        password: process.env.PG_PASSWORD || 'postgres',
+        port: process.env.PG_PORT || 5432,
+        ssl: process.env.PG_SSL === 'true' ? true : false,
+    });
+} else {
+    // For production environments like Vercel
+    pool = new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
+    });
+}
 
 app.use(express.json());
 
