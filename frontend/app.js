@@ -1,4 +1,4 @@
-const API_BASE = 'https://backend-8s4cph3pc-ben-npicts-projects.vercel.app'; // change if different
+const API_BASE = 'https://psychic-space-fortnight-g7xqgv9rqp6c9ggw-3000.app.github.dev'; // change if different
 let table;
 
 function actionButtons(id){
@@ -26,6 +26,8 @@ async function initTableFromApi(){
   if(table) table.destroy();
   table = new DataTable('#restaurantsTable', { data: rows });
 }
+
+
 
 document.addEventListener('DOMContentLoaded', initTableFromApi);
 // document.addEventListener('DOMContentLoaded', initTableWithStatic);

@@ -16,6 +16,8 @@ services:
     depends_on: [ postgres ]
     ports:
       - '3000:3000'
+    environment:
+      - PG_HOST=postgres
   frontend:
     build: frontend
     depends_on: [ node-backend ]
