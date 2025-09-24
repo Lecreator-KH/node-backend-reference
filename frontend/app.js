@@ -32,7 +32,7 @@ async function initTableFromApi() {
 const createForm = document.getElementById('createForm');
 
 // Backend API URL
-const API_URL = 'https://psychic-space-fortnight-g7xqgv9rqp6c9ggw-3000.app.github.dev/restaurants'; // replace with your backend URL
+const API_URL = `${API_BASE}/restaurants`; // replace with your backend URL
 
 // Handle form submission
 createForm.addEventListener('submit', async (event) => {
@@ -90,7 +90,7 @@ tableBody.addEventListener('click', async (event) => {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`https://psychic-space-fortnight-g7xqgv9rqp6c9ggw-3000.app.github.dev/restaurants/${id}`, {
+      const response = await fetch(`${API_BASE}/restaurants/${id}`, {
         method: 'DELETE',
       });
       const data = await response.json();
@@ -130,7 +130,7 @@ tableBody.addEventListener('click', async (event) => {
     }
 
     try {
-      const response = await fetch(`https://psychic-space-fortnight-g7xqgv9rqp6c9ggw-3000.app.github.dev/restaurants/${id}`, {
+      const response = await fetch(`${API_BASE}/restaurants/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, cuisine, rating })
